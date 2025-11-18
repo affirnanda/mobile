@@ -45,35 +45,39 @@ class _MyAppState extends State<MyApp> {
         // ===========================
         // Drawer
         // ===========================
-        drawer: Drawer(
-          child: ListView(
-            children: [
-               DrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
-                child: Icon(Icons.person, size: 100, color: Colors.red),
+        drawer: Builder(
+          builder: (context) {
+            return Drawer(
+              child: ListView(
+                children: [
+                   DrawerHeader(
+                    decoration: BoxDecoration(color: Colors.blue),
+                    child: Icon(Icons.person, size: 100, color: Colors.red),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.home),
+                    title: const Text("Home"),
+                    onTap: () {
+                      setState(() {
+                        message = "Item Home sudah selesai dari drawer";
+                      });
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text("Settings"),
+                    onTap: () {
+                      setState(() {
+                        message = "Item Settings sudah selesai dari drawer";
+                      });
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
               ),
-              ListTile(
-                leading: const Icon(Icons.home),
-                title: const Text("Home"),
-                onTap: () {
-                  setState(() {
-                    message = "Item Home sudah selesai dari drawer";
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.settings),
-                title: const Text("Settings"),
-                onTap: () {
-                  setState(() {
-                    message = "Item Settings sudah selesai dari drawer";
-                  });
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
+            );
+          }
         ),
 
         // ===========================
